@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classement - La Quête de Thanos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body class="secondary-page">
+
+    <h1>Classement</h1>
+
+    <div class="leaderboard-container">
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Joueur</th>
+                    <th>Temps Total</th>
+                    <th>Salle 1 (Âme)</th>
+                    <th>Salle 2 (Temps)</th>
+                    <th>Salle 3 (Esprit)</th>
+                    <th></th> 
+                </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+                <tr><td colspan="7" style="text-align:center;">Chargement...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="index.html" class="back-button">Retour au Menu</a>
+
+    <script type="module" src="../src/leaderboard.js"></script>
+</body>
+</html>
