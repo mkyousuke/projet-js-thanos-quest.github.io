@@ -1,6 +1,6 @@
-import * as ui from '../ui.js';
-import { levelCompleted } from '../game.js';
-import { playSound } from '../utils/sound.js';
+import * as ui from './ui.js';
+import { levelCompleted } from './game.js';
+import { playSound } from './sound.js';
 
 const gamora = { name: "Gamora", image: "./assets/images/sprites/gamora.png" };
 const thanos = { name: "Thanos", image: "./assets/images/sprites/thanos.png" };

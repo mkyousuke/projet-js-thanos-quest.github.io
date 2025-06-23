@@ -2,10 +2,49 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/public/index.html">
-    <title>Redirection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Game - La quête de Thanos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Redirection vers /public/index.html...</p>
+    <div id="title-banner" class="hidden">
+        <h1 id="room-title"></h1>
+        <button id="story-reminder-button">Rappel de l'Histoire</button>
+    </div>
+
+    <div id="game-container">
+        <div id="start-screen">
+            <h1 class="main-title">La Quête de Thanos</h1>
+            <div class="menu">
+                <button id="start-button" class="menu-button">Jouer</button>
+                <button onclick="window.location.href='characters.html'" class="menu-button">Personnages</button>
+                <button onclick="window.location.href='leaderboard.html'" class="menu-button">Classement</button>
+                <button onclick="window.location.href='credits.html'" class="menu-button">Crédits</button>
+                <a href="https://github.com/mkyousuke/projet-js-la-quete-de-thanos" target="_blank" class="menu-button github-link">GitHub</a>
+            </div>
+        </div>
+
+        <div id="info-banner" class="hidden">
+            <div id="timer">Temps restant : 05:00</div>
+            <div id="player-name-display">Joueur: -</div>
+            <div id="riddles-left">Pierres restantes : 3</div>
+        </div>
+
+        <div id="game-area">
+            </div>
+
+        <div id="dialogue-window" class="hidden">
+            <div class="character-portrait">
+                <img id="dialogue-character-image" src="" alt="Character">
+            </div>
+            <p id="dialogue-text"></p>
+        </div>
+
+        <div id="notification-area"></div>
+    </div>
+
+    <audio id="home-music" src="./assets/sounds/home.mp3" loop></audio>
+    <audio id="background-music" loop></audio>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

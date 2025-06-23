@@ -1,6 +1,6 @@
-import * as ui from '../ui.js';
-import { levelCompleted } from '../game.js';
-import { playSound } from '../utils/sound.js';
+import * as ui from './ui.js';
+import { levelCompleted } from './game.js';
+import { playSound } from './sound.js';
 
 // --- Character Definitions ---
 const thanos = { name: 'Thanos', image: './assets/images/sprites/thanos.png' };

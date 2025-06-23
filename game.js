@@ -1,9 +1,9 @@
 import * as ui from './ui.js';
 import { startTimer, stopTimer, getPlayTimeInSeconds } from './timer.js';
 import { saveScore } from './storage.js';
-import { startVormir } from './levels/level1.js';
-import { startTitan } from './levels/level2.js';
-import { startWakanda } from './levels/level3.js';
+import { startVormir } from './level1.js';
+import { startTitan } from './level2.js';
+import { startWakanda } from './level3.js';
 
 let gameState = {
     currentPlayerName: "Thanos",
