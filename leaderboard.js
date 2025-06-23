@@ -1,10 +1,5 @@
 import { getScores } from './storage.js';
 
-// Vérifier si html2canvas est disponible
-function isHtml2CanvasLoaded() {
-    return typeof html2canvas !== 'undefined';
-}
-
 function formatTime(timeInSeconds) {
     if (typeof timeInSeconds !== 'number' || isNaN(timeInSeconds)) {
         return 'N/A';
@@ -15,12 +10,6 @@ function formatTime(timeInSeconds) {
 }
 
 async function generateScoreImage(score) {
-    if (!isHtml2CanvasLoaded()) {
-        console.error('html2canvas n\'est pas chargé');
-        alert('Fonctionnalité de partage non disponible pour le moment.');
-        return;
-    }
-
     const scoreCard = document.createElement('div');
     scoreCard.id = 'score-card-for-screenshot';
 
@@ -83,7 +72,6 @@ function displayLeaderboard() {
 
         if (score.name === currentPlayerName) {
             row.classList.add('current-player');
-            // Afficher le bouton même si html2canvas n'est pas chargé
             actionCellHTML = `<button class="share-button" data-index="${index}">Partager</button>`;
         }
 
@@ -109,31 +97,4 @@ function displayLeaderboard() {
     });
 }
 
-// Attendre que html2canvas soit chargé avant d'afficher le leaderboard
-function waitForHtml2Canvas() {
-    return new Promise((resolve) => {
-        if (isHtml2CanvasLoaded()) {
-            resolve();
-            return;
-        }
-        
-        const checkInterval = setInterval(() => {
-            if (isHtml2CanvasLoaded()) {
-                clearInterval(checkInterval);
-                resolve();
-            }
-        }, 100);
-        
-        // Timeout après 5 secondes
-        setTimeout(() => {
-            clearInterval(checkInterval);
-            console.warn('html2canvas n\'a pas pu être chargé dans les temps');
-            resolve();
-        }, 5000);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-    await waitForHtml2Canvas();
-    displayLeaderboard();
-});
+document.addEventListener('DOMContentLoaded', displayLeaderboard);
