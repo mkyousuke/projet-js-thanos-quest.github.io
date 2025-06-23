@@ -2,10 +2,107 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=main.html">
-    <title>Redirection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Game - La quête de Thanos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Redirection vers <a href="main.html">main.html</a>...</p>
+    <div id="title-banner" class="hidden">
+        <h1 id="room-title"></h1>
+        <button id="story-reminder-button">Rappel de l'Histoire</button>
+    </div>
+
+    <div id="game-container">
+        <div id="start-screen">
+            <h1 class="main-title">La Quête de Thanos</h1>
+            <div class="menu">
+                <button id="start-button" class="menu-button">Jouer</button>
+                <button onclick="window.location.href='characters.html'" class="menu-button">Personnages</button>
+                <button onclick="window.location.href='leaderboard.html'" class="menu-button">Classement</button>
+                <button onclick="window.location.href='credits.html'" class="menu-button">Crédits</button>
+                <a href="https://github.com/mkyousuke/projet-js-la-quete-de-thanos" target="_blank" class="menu-button github-link">GitHub</a>
+            </div>
+        </div>
+
+        <div id="info-banner" class="hidden">
+            <div id="timer">Temps restant : 05:00</div>
+            <div id="player-name-display">Joueur: -</div>
+            <div id="riddles-left">Pierres restantes : 3</div>
+        </div>
+
+        <div id="game-area">
+            </div>
+
+        <div id="dialogue-window" class="hidden">
+            <div class="character-portrait">
+                <img id="dialogue-character-image" src="" alt="Character">
+            </div>
+            <p id="dialogue-text"></p>
+        </div>
+
+        <div id="notification-area"></div>
+    </div>
+
+    <div id="rules-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Règles du jeu</h2>
+            <ul>
+                <li>Incarnez Thanos pour collecter les trois Pierres d'Infinité (Âme, Temps, Esprit) dans trois salles : Vormir, Titan et Wakanda.</li>
+                <li>Vous avez <strong>5 minutes</strong> pour résoudre les énigmes et obtenir toutes les pierres.</li>
+                <li>Interagissez avec l'environnement par <strong>clics</strong>, <strong>glisser-déposer</strong> ou <strong>saisie clavier</strong> pour trouver des indices.</li>
+                <li>Chaque salle propose une énigme unique : un sacrifice à Vormir, un code à Titan, et un puzzle à Wakanda.</li>
+                <li>Trop d'erreurs ou l'épuisement du temps entraîne un <strong>game over</strong>.</li>
+                <li>Si vous gagnez, votre temps restant sera enregistré dans le <strong>classement</strong>.</li>
+            </ul>
+            <button id="close-rules-button">J'ai compris !</button>
+        </div>
+    </div>
+
+    <audio id="home-music" src="./assets/sounds/home.mp3" loop></audio>
+    <audio id="background-music" loop></audio>
+    <script>
+        function showRulesPopup() {
+            const hasSeenRules = localStorage.getItem('hasSeenRules');
+            if (!hasSeenRules) {
+                const popup = document.getElementById('rules-popup');
+                popup.classList.remove('hidden');
+                localStorage.setItem('hasSeenRules', 'true');
+            }
+        }
+
+        window.onload = function() {
+            showRulesPopup();
+            document.getElementById('close-rules-button').addEventListener('click', () => {
+                document.getElementById('rules-popup').classList.add('hidden');
+            });
+        };
+    </script>
+    <script>
+        function playMusic() {
+            const audio = document.getElementById('home-music');
+            audio.volume = 0.05;
+            audio.play().catch(error => {
+                console.error('Erreur lors de la lecture de l\'audio :', error);
+            });
+        }
+
+        function showRulesPopup() {
+            const hasSeenRules = localStorage.getItem('hasSeenRules');
+            if (!hasSeenRules) {
+                const popup = document.getElementById('rules-popup');
+                popup.classList.remove('hidden');
+                localStorage.setItem('hasSeenRules', 'true');
+            }
+        }
+
+        window.onload = function() {
+            playMusic();
+            showRulesPopup();
+            document.getElementById('close-rules-button').addEventListener('click', () => {
+                document.getElementById('rules-popup').classList.add('hidden');
+            });
+        };
+    </script>
+    <script type="module" src="../src/main.js"></script>
 </body>
 </html>
