@@ -77,32 +77,7 @@
             });
         };
     </script>
-    <script>
-        function playMusic() {
-            const audio = document.getElementById('home-music');
-            audio.volume = 0.05;
-            audio.play().catch(error => {
-                console.error('Erreur lors de la lecture de l\'audio :', error);
-            });
-        }
-
-        function showRulesPopup() {
-            const hasSeenRules = localStorage.getItem('hasSeenRules');
-            if (!hasSeenRules) {
-                const popup = document.getElementById('rules-popup');
-                popup.classList.remove('hidden');
-                localStorage.setItem('hasSeenRules', 'true');
-            }
-        }
-
-        window.onload = function() {
-            playMusic();
-            showRulesPopup();
-            document.getElementById('close-rules-button').addEventListener('click', () => {
-                document.getElementById('rules-popup').classList.add('hidden');
-            });
-        };
-    </script>
-    <script type="module" src="../src/main.js"></script>
+    
+    <script type="module" src="./main.js"></script>
 </body>
 </html>
