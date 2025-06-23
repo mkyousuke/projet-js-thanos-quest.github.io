@@ -9,6 +9,21 @@ function formatTime(timeInSeconds) {
     return `${minutes}m ${seconds < 10 ? '0' : ''}${seconds}s`;
 }
 
+// Fonction pour gérer la musique
+function playBackgroundMusic() {
+    const music = document.getElementById('home-music');
+    if (music) {
+        music.volume = 0.5; // Ajustez le volume selon vos préférences
+        music.play().catch(error => {
+            console.log('Impossible de jouer la musique automatiquement:', error);
+            // Ajouter un event listener pour démarrer la musique au premier clic
+            document.addEventListener('click', () => {
+                music.play().catch(err => console.log('Erreur lors de la lecture de la musique:', err));
+            }, { once: true });
+        });
+    }
+}
+
 async function generateScoreImage(score) {
     const scoreCard = document.createElement('div');
     scoreCard.id = 'score-card-for-screenshot';
@@ -97,4 +112,11 @@ function displayLeaderboard() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', displayLeaderboard);
+// Fonction d'initialisation
+function initializeLeaderboard() {
+    displayLeaderboard();
+    playBackgroundMusic();
+}
+
+// Lancement au chargement de la page
+document.addEventListener('DOMContentLoaded', initializeLeaderboard);

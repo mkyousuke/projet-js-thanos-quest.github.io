@@ -11,7 +11,6 @@
     <h1>Les Personnages</h1>
 
     <div class="characters-container">
-        
         <div class="character-card">
             <div class="character-image-wrapper">
                 <img src="./assets/images/sprites/thanos.png" alt="Thanos">
@@ -71,10 +70,25 @@
                 </p>
             </div>
         </div>
-
     </div>
 
     <a href="index.html" class="back-button">Retour au Menu</a>
+
+    <audio id="home-music" src="./assets/sounds/characters.mp3" loop></audio>
+
+    <script>
+        function playMusic() {
+            const audio = document.getElementById('home-music');
+            audio.volume = 0.2; 
+            audio.play().catch(error => {
+                console.error('Erreur lors de la lecture de l\'audio :', error);
+            });
+        }
+
+        window.onload = function() {
+            playMusic();
+        };
+    </script>
 
 </body>
 </html>
