@@ -606,3 +606,127 @@ body {
     margin: 5px 0;
     text-shadow: 1px 1px 2px black;
 }
+
+@media screen and (max-width: 768px) {
+    #room-title {
+        font-size: 1.5em; /* Réduit la taille pour les petits écrans */
+    }
+
+    #game-container {
+        height: 70vh; /* Ajuste la hauteur pour petits écrans */
+    }
+
+    .main-title {
+        font-size: 2.5em; /* Réduit la taille pour éviter le débordement */
+    }
+
+    .menu {
+        flex-direction: column; /* Passe en colonne pour les petits écrans */
+        gap: 15px;
+    }
+
+    .menu-button {
+        font-size: 1.2em; /* Réduit la taille du texte */
+        padding: 8px 20px;
+    }
+
+    #info-banner {
+        font-size: 1em; /* Réduit la taille pour lisibilité */
+        padding: 8px 15px;
+    }
+
+    #dialogue-window {
+        width: 95%; /* Élargit légèrement pour maximiser l’espace */
+        min-height: 80px; /* Réduit la hauteur minimale */
+        padding: 10px 15px 10px 90px; /* Ajuste le padding */
+    }
+
+    #dialogue-window .character-portrait {
+        width: 70px; /* Réduit la taille du portrait */
+        height: 70px;
+    }
+
+    #dialogue-text {
+        font-size: 1em; /* Réduit la taille pour lisibilité */
+    }
+
+    #story-reminder-button {
+        font-size: 0.7em; /* Réduit la taille */
+        padding: 8px 12px;
+    }
+
+    .memory-object {
+        width: 15vw; /* Ajuste encore plus pour petits écrans */
+        max-width: 60px;
+    }
+
+    #gamora-sprite {
+        width: 20vw; /* Ajuste encore plus pour petits écrans */
+        max-width: 120px;
+    }
+
+    #sacrifice-zone {
+        width: 20vw; /* Ajuste encore plus pour petits écrans */
+        max-width: 150px;
+    }
+
+    .ephemeral-number-display {
+        font-size: 32px; /* Réduit la taille pour lisibilité */
+    }
+
+    .character-card {
+        width: 200px; /* Réduit la taille des cartes */
+        height: 300px;
+    }
+
+    .character-info h2 {
+        font-size: 1.5em; /* Réduit la taille du titre */
+    }
+
+    .character-description {
+        font-size: 0.8em; /* Réduit la taille de la description */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #room-title {
+        font-size: 1.2em; /* Encore plus petit pour très petits écrans */
+    }
+
+    .main-title {
+        font-size: 2em;
+    }
+
+    .menu-button {
+        font-size: 1em;
+        padding: 6px 15px;
+    }
+
+    #dialogue-window {
+        padding: 8px 10px 8px 70px;
+    }
+
+    #dialogue-window .character-portrait {
+        width: 50px;
+        height: 50px;
+    }
+
+    #dialogue-text {
+        font-size: 0.9em;
+    }
+
+    .memory-object {
+        width: 12vw;
+        max-width: 50px;
+    }
+
+    #gamora-sprite {
+        width: 18vw;
+        max-width: 100px;
+    }
+
+    #sacrifice-zone {
+        width: 18vw;
+        max-width: 120px;
+    }
+}
